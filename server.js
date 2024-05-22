@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import posts from "./routes/posts.js";
+import logger from "./middleware/logger.js";
 const port = process.env.PORT || 8000;
 import {} from "dotenv/config";
 
@@ -12,7 +13,7 @@ const app = express();
 app.use(express.json());
 //Takes care of URL encoded data
 app.use(express.urlencoded({ extended: false }));
-
+app.use(logger);
 //setup static folder
 //app.use(express.static(path.join(__dirname, "public")));
 
